@@ -13,3 +13,7 @@ services:
     env_file:
      - dev.env
 
+  skillx.modules.courses:
+    env_file:
+     - dev.env
+

@@ -11,6 +11,7 @@ services:
       - skillx.rabbitmq
       - skillx.modules.auth
       - skillx.modules.user
+      - skillx.modules.courses
     ports:
       - "81:80"
 
@@ -25,8 +26,6 @@ services:
     depends_on:
       - skillx.sqlserver
       - skillx.rabbitmq
-    ports:
-      - "82:80"
 
   skillx.modules.user:
     image: skillxmodulesuser
@@ -38,8 +37,12 @@ services:
     depends_on:
       - skillx.mongodb
       - skillx.rabbitmq
-    ports:
-      - "83:80"
+
+  skillx.modules.courses:
+    image: skillxmodulescourses
+    build:
+      context: .
+      dockerfile: ../../src/modules/courses/Skillx.Modules.Courses/Dockerfile
 
   # ================== 3rd party ============================
   skillx.sqlserver:
@@ -73,4 +76,4 @@ services:
     ports:
         - 27017:27017
     command: mongod --smallfiles --logpath=/dev/null
- 
+
