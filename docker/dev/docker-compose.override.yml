@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  skillx.gateways.webapi:
+    env_file:
+     - dev.env
+
+  skillx.modules.auth:
+    env_file:
+     - dev.env
+
+  skillx.modules.user:
+    env_file:
+     - dev.env
+

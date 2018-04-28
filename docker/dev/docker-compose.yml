@@ -1,0 +1,76 @@
+version: '3'
+
+services:
+  skillx.gateways.webapi:
+    image: skillxgatewayswebapi
+    container_name: skillx.gateways.webapi
+    build:
+      context: .
+      dockerfile: ../../src/gateways/Skillx.Gateways.WebAPI/Dockerfile
+    depends_on:
+      - skillx.rabbitmq
+      - skillx.modules.auth
+      - skillx.modules.user
+    ports:
+      - "81:80"
+
+  skillx.modules.auth:
+    image: skillxmodulesauth
+    container_name: skillx.modules.auth
+    build:
+      context: .
+      dockerfile: ../../src/modules/auth/Skillx.Modules.Auth/Dockerfile
+    environment:
+      - SQL_SERVER_CONNECTION=Server=skillx.sqlserver;Database=skillxAuthDb;User Id=sa;Password=SuperPassword12;
+    depends_on:
+      - skillx.sqlserver
+      - skillx.rabbitmq
+    ports:
+      - "82:80"
+
+  skillx.modules.user:
+    image: skillxmodulesuser
+    build:
+      context: .
+      dockerfile: ../../src/modules/user/Skillx.Modules.User/Dockerfile
+    environment:
+      - MONGO_CONNECTION=mongodb://skillx.mongodb:27017
+    depends_on:
+      - skillx.mongodb
+      - skillx.rabbitmq
+    ports:
+      - "83:80"
+
+  # ================== 3rd party ============================
+  skillx.sqlserver:
+    image: microsoft/mssql-server-linux
+    container_name: skillx.sqlserver
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: SuperPassword12
+    ports:
+      - "1433:1433"
+    volumes:
+      - /var/opt/mssql
+
+  skillx.rabbitmq:
+    image: rabbitmq
+    container_name: skillx.rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=mypass
+    ports:
+      - "80:5672"
+
+  skillx.mongodb:
+    image: mongo:latest
+    container_name: "mongodb"
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./data/db:/data/db
+    ports:
+        - 27017:27017
+    command: mongod --smallfiles --logpath=/dev/null
+ 
