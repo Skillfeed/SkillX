@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Skillx.Communication.ServiceBus;
-using Skillx.Communication.ServiceBus.Abstractions;
 using Skillx.Gateways.WebAPI.Attributes;
 using Skillx.Gateways.WebAPI.Services.Abstraction;
 using Skillx.Gateways.WebAPI.Services.Abstraction.Common;
@@ -28,7 +26,6 @@ namespace Skillx.Gateways.WebAPI
             services.AddMvc();
             services.AddOptions();
 
-            services.AddSingleton<IMessageBus, RabbitMQMessageBus>();
             services.AddScoped<AuthorizeAsyncAttribute>();
 
             services.AddTransient<IApplicationHttpClient, ApplicationHttpClient>();

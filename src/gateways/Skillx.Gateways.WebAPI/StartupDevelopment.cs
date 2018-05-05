@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Skillx.Communication.ServiceBus;
+using Skillx.Communication.ServiceBus.Abstractions;
 using Skillx.Communication.ServiceBus.Options;
 using Skillx.Gateways.WebAPI.Constants;
 using Skillx.Gateways.WebAPI.Options;
@@ -22,6 +24,7 @@ namespace Skillx.Gateways.WebAPI
 
             var rabbitMQConnectionString = Environment.GetEnvironmentVariable(EnvironmentVariables.RabbitMQUrl);
             services.Configure<RabbitMQOptions>(opts => opts.ConnectionString = rabbitMQConnectionString);
+            services.AddSingleton<IMessageBus, RabbitMQMessageBus>();
 
             services.Configure<ServicesEndpoints>(opts =>
             {

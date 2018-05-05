@@ -18,6 +18,7 @@ namespace Skillx.Modules.Courses
 
         public virtual void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
         }
 
         public virtual void Configure(IApplicationBuilder app, IHostingEnvironment env)
