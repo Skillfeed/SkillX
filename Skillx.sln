@@ -39,7 +39,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "courses", "courses", "{7C3A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skillx.Modules.Courses", "src\modules\courses\Skillx.Modules.Courses\Skillx.Modules.Courses.csproj", "{031149A5-4E4B-4A24-9853-F5F3676B8798}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skillx.Modules.User", "src\modules\user\Skillx.Modules.User\Skillx.Modules.User.csproj", "{2263EF6C-E425-456F-93AF-B8E0F292ADA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skillx.Modules.User", "src\modules\user\Skillx.Modules.User\Skillx.Modules.User.csproj", "{2263EF6C-E425-456F-93AF-B8E0F292ADA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skillx.Modules.Courses.Core", "src\modules\courses\Skillx.Modules.Courses.Core\Skillx.Modules.Courses.Core.csproj", "{D500964B-5AAA-4214-9888-3C9487C06881}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skillx.Modules.Courses.Data", "src\modules\courses\Skillx.Modules.Courses.Data\Skillx.Modules.Courses.Data.csproj", "{F5DA4C88-9D8C-4C1C-8908-EFE39DA8D38D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skillx.Modules.Courses.Impl", "src\modules\courses\Skillx.Modules.Courses.Impl\Skillx.Modules.Courses.Impl.csproj", "{30EC6AB9-831A-45CD-9967-FE9A2F01D663}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,6 +101,18 @@ Global
 		{2263EF6C-E425-456F-93AF-B8E0F292ADA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2263EF6C-E425-456F-93AF-B8E0F292ADA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2263EF6C-E425-456F-93AF-B8E0F292ADA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D500964B-5AAA-4214-9888-3C9487C06881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D500964B-5AAA-4214-9888-3C9487C06881}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D500964B-5AAA-4214-9888-3C9487C06881}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D500964B-5AAA-4214-9888-3C9487C06881}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5DA4C88-9D8C-4C1C-8908-EFE39DA8D38D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5DA4C88-9D8C-4C1C-8908-EFE39DA8D38D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5DA4C88-9D8C-4C1C-8908-EFE39DA8D38D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5DA4C88-9D8C-4C1C-8908-EFE39DA8D38D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30EC6AB9-831A-45CD-9967-FE9A2F01D663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30EC6AB9-831A-45CD-9967-FE9A2F01D663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30EC6AB9-831A-45CD-9967-FE9A2F01D663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30EC6AB9-831A-45CD-9967-FE9A2F01D663}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,6 +135,9 @@ Global
 		{7C3A41A7-8DD0-4168-8A3B-4BFEA2FC0DC8} = {62CC21D0-04B1-47EE-BC1D-42267D2B6455}
 		{031149A5-4E4B-4A24-9853-F5F3676B8798} = {7C3A41A7-8DD0-4168-8A3B-4BFEA2FC0DC8}
 		{2263EF6C-E425-456F-93AF-B8E0F292ADA7} = {3B5690E8-434C-4A12-AB45-EAD67E940938}
+		{D500964B-5AAA-4214-9888-3C9487C06881} = {7C3A41A7-8DD0-4168-8A3B-4BFEA2FC0DC8}
+		{F5DA4C88-9D8C-4C1C-8908-EFE39DA8D38D} = {7C3A41A7-8DD0-4168-8A3B-4BFEA2FC0DC8}
+		{30EC6AB9-831A-45CD-9967-FE9A2F01D663} = {7C3A41A7-8DD0-4168-8A3B-4BFEA2FC0DC8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C238CC77-AF61-42E3-8C2A-0FA756D0CF6E}

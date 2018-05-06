@@ -28,15 +28,5 @@ namespace Skillx.Gateways.WebAPI.Controllers
 
             return this.GetActionResult(response);
         }
-
-        private IActionResult GetActionResult(DefaultResponse response)
-        {
-            if (response.Success)
-            {
-                return this.Ok(response);
-            }
-
-            return this.BadRequest(response);
-        }
     }
 }

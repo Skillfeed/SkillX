@@ -31,9 +31,7 @@ services:
     image: skillxmodulesuser
     build:
       context: .
-      dockerfile: ../../src/modules/user/Skillx.Modules.User/Dockerfile
-    environment:
-      - MONGO_CONNECTION=mongodb://skillx.mongodb:27017
+      dockerfile: ../../src/modules/user/Skillx.Modules.User/Dockerfile\
     depends_on:
       - skillx.mongodb
       - skillx.rabbitmq

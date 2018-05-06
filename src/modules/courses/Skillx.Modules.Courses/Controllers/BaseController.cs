@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Skillx.Gateways.WebAPI.Models;
 using Newtonsoft.Json;
+using Skillx.Modules.Courses.Models;
 
-namespace Skillx.Gateways.WebAPI.Controllers
+namespace Skillx.Modules.Courses.Controllers
 {
     public class BaseController : Controller
     {
@@ -17,16 +17,6 @@ namespace Skillx.Gateways.WebAPI.Controllers
             var responseJson = JsonConvert.SerializeObject(response);
 
             return responseJson;
-        }
-
-        protected IActionResult GetActionResult(DefaultResponse response)
-        {
-            if (response.Success)
-            {
-                return this.Ok(response);
-            }
-
-            return this.BadRequest(response);
         }
     }
 }

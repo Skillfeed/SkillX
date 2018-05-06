@@ -1,7 +1,13 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Skillx.Modules.Courses.Attributes.Filters.Action;
+using Skillx.Modules.Courses.Core;
+using Skillx.Modules.Courses.Core.Repositories;
+using Skillx.Modules.Courses.Data.Repositories;
+using Skillx.Modules.Courses.Impl;
 
 namespace Skillx.Modules.Courses
 {
@@ -18,7 +24,14 @@ namespace Skillx.Modules.Courses
 
         public virtual void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc(opts =>
+            {
+                opts.Filters.Add(new ModelStateValidationAttribute());
+            });
+            services.AddAutoMapper();
+
+            services.AddScoped<ICourseRepository, CourseRepository>();
+            services.AddTransient<ICourseManager, CourseManager>();
         }
 
         public virtual void Configure(IApplicationBuilder app, IHostingEnvironment env)

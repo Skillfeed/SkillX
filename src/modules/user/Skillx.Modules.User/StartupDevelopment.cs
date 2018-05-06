@@ -8,6 +8,7 @@ using Skillx.Communication.ServiceBus.Abstractions;
 using Skillx.Communication.ServiceBus.Options;
 using Skillx.Modules.User.Config;
 using Skillx.Modules.User.Constants;
+using Skillx.Modules.User.Core.Options;
 
 namespace Skillx.Modules.User
 {
@@ -25,6 +26,12 @@ namespace Skillx.Modules.User
             var rabbitMQConnectionString = Environment.GetEnvironmentVariable(EnvironmentVariables.RabbitMQUrl);
             services.Configure<RabbitMQOptions>(opts => opts.ConnectionString = rabbitMQConnectionString);
             services.AddSingleton<IMessageBus, RabbitMQMessageBus>();
+
+            services.Configure<DatabaseOptions>(opts =>
+            {
+                opts.ConnectionString = Environment.GetEnvironmentVariable(EnvironmentVariables.MongoConnectionString);
+                opts.DatabaseName = "Skillx_Users";
+            });
 
             var serviceProvider = services.BuildServiceProvider();
             MessageRegistrations.RegisterMessageHandlers(serviceProvider);

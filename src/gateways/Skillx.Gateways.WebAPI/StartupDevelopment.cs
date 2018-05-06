@@ -28,7 +28,8 @@ namespace Skillx.Gateways.WebAPI
 
             services.Configure<ServicesEndpoints>(opts =>
             {
-                opts.Auth = "http://Skillx.modules.auth";
+                opts.Auth = "http://skillx.modules.auth";
+                opts.Courses = "http://skillx.modules.courses";
             });
         }
 

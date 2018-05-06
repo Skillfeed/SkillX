@@ -6,10 +6,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="wwwroot\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="AutoMapper.Extensions" Version="1.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
   </ItemGroup>
 
@@ -19,6 +25,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\communication\Skillx.Communication.ServiceBus\Skillx.Communication.ServiceBus.csproj" />
+    <ProjectReference Include="..\Skillx.Modules.Courses.Core\Skillx.Modules.Courses.Core.csproj" />
+    <ProjectReference Include="..\Skillx.Modules.Courses.Data\Skillx.Modules.Courses.Data.csproj" />
+    <ProjectReference Include="..\Skillx.Modules.Courses.Impl\Skillx.Modules.Courses.Impl.csproj" />
   </ItemGroup>
 
 </Project>

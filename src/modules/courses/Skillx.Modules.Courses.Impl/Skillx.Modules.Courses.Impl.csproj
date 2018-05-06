@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Skillx.Modules.Courses.Core\Skillx.Modules.Courses.Core.csproj" />
+  </ItemGroup>
+
+</Project>

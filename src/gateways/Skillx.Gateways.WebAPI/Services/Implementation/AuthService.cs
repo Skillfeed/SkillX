@@ -12,30 +12,24 @@ using Newtonsoft.Json;
 
 namespace Skillx.Gateways.WebAPI.Services.Implementation
 {
-    public class AuthService : IAuthService
+    public class AuthService : BaseService, IAuthService
     {
-        private readonly IApplicationHttpClient http;
-        private readonly ServicesEndpoints endpoints;
-        private readonly IMessageBus messageBus;
-
         public AuthService(IOptions<ServicesEndpoints> endpoints,
                            IMessageBus messageBus,
                            IApplicationHttpClient http)
+            : base(http, endpoints.Value, messageBus)
         {
-            this.endpoints = endpoints.Value;
-            this.messageBus = messageBus;
-            this.http = http;
         }
 
         public async Task<DefaultResponse> Register(RegisterUserRequest user)
         {
-            var response = await this.http.PostAsync($"{this.endpoints.Auth}/account/register", user);
+            var response = await this.Http.PostAsync($"{this.Endpoints.Auth}/account/register", user);
 
             if (response.Success)
             {
                 var message = new UserCreatedMessage { Data = JsonConvert.SerializeObject(user) };
 
-                await this.messageBus.PublishAsync(message);
+                await this.MessageBus.PublishAsync(message);
             }
 
             return response;
@@ -43,7 +37,7 @@ namespace Skillx.Gateways.WebAPI.Services.Implementation
 
         public async Task<DefaultResponse> Login(LoginUserRequest user)
         {
-            var response = await this.http.PostAsync($"{this.endpoints.Auth}/auth/login", user);
+            var response = await this.Http.PostAsync($"{this.Endpoints.Auth}/auth/login", user);
 
             return response;
         }

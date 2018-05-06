@@ -30,6 +30,7 @@ namespace Skillx.Gateways.WebAPI
 
             services.AddTransient<IApplicationHttpClient, ApplicationHttpClient>();
             services.AddTransient<IAuthService, AuthService>();
+            services.AddTransient<ICourseService, CourseService>();
         }
 
         public virtual void Configure(IApplicationBuilder app, IHostingEnvironment env)
